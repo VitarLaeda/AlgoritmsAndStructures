@@ -1,4 +1,4 @@
-package lesson1;
+package discnt;
 
 
 import java.io.*;
@@ -10,7 +10,7 @@ public class Lesson1 {
     private static int summary = 0;
 
     public static void main(String[] args) throws IOException {
-        FileInputStream fstream = new FileInputStream("src\\main\\java\\lesson1\\discnt.in");
+        FileInputStream fstream = new FileInputStream("src\\main\\java\\discnt\\discnt.in");
         BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
         int i = 0;
         List<String> line = new ArrayList<>();
@@ -31,10 +31,10 @@ public class Lesson1 {
         bestComboProducts(products);
         double bestPrice = summary + (sum - ((sum / 100) * disc));
 
-        PrintWriter pw1 = new PrintWriter(new BufferedWriter(new FileWriter("src\\main\\java\\lesson1\\discnt.out")));
+        PrintWriter pw1 = new PrintWriter(new BufferedWriter(new FileWriter("src\\main\\java\\discnt\\discnt.out")));
         pw1.close(); // Make sure the first PrintWriter object name is different from the second one.
 
-        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("src\\main\\java\\lesson1\\discnt.out", true))); // PrintWriter in append-mode. When you recreate the text file with the same name, the file contents are erased because the previous object was not in append mode.
+        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("src\\main\\java\\discnt\\discnt.out", true))); // PrintWriter in append-mode. When you recreate the text file with the same name, the file contents are erased because the previous object was not in append mode.
         pw.print(String.format("%.2f", bestPrice));
         pw.close();
 
