@@ -1,2 +1,5 @@
 .idea
 *.class
+test/
+discnt/discnt.in
+discnt/discnt.out

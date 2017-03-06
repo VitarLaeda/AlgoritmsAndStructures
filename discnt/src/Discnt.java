@@ -7,8 +7,8 @@ public class Discnt {
     private static int summary = 0;
 
     public static void main(String[] args) throws IOException {
-        String inputFileName = args.length >= 2 ? args[0] : "discnt/src/discnt.in";
-        String outputFileName = args.length >= 2 ? args[1] : "discnt/src/discnt.out";
+        String inputFileName = args.length >= 2 ? args[0] : "discnt.in";
+        String outputFileName = args.length >= 2 ? args[1] : "discnt.out";
 
 
         FileInputStream fstream = new FileInputStream(inputFileName);
