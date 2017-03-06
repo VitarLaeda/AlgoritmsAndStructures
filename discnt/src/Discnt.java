@@ -3,8 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Discnt {
-    private static int sum = 0;
-    private static int summary = 0;
+    private static double sum = 0;
+    private static double summary = 0;
 
     public static void main(String[] args) throws IOException {
         String inputFileName = args.length >= 2 ? args[0] : "discnt.in";
