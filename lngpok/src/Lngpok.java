@@ -82,9 +82,8 @@ public class Lngpok {
                 combosHash[k]+=1;
                 jokers -= ((combos[count+1] - combos[count])-1);
                 if (jokers<0){
-                    int max = Arrays.stream(combosHash).max().getAsInt();
-
-                    return max+countJokers;
+                    Arrays.sort(combosHash);
+                    return combosHash[combosHash.length-1]+countJokers;
                 }
             }
             else {
@@ -92,10 +91,7 @@ public class Lngpok {
                 k++;
             }
         }
-
-        int max = Arrays.stream(combosHash).max().getAsInt()+1;
-
-        return max + countJokers;
+        return combosHash[combosHash.length-1] + countJokers + 1;
     }
 
     static int[] countSort(int[] array) {
