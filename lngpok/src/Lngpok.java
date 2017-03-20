@@ -72,18 +72,20 @@ public class Lngpok {
                 jokers = countJokers;
                 k++;
             }
-            if (combos.length < 3) {
+            if (combos.length < 3 || (combos.length-1) == combosHash[k]) {
                 if (combos[count + 1] == combos[count] + 1) {
                     combosHash[k] += 1 + jokers;
                 }
             }
         }
+        if (combos.length < 3) {
+            if (combos[combos.length-1] == combos[0]) {
+                combosHash[k] += 1 + jokers;
+            }
+        }
         Arrays.sort(combosHash);
         if (v < combosHash[combosHash.length - 1]) {
             v = combosHash[combosHash.length - 1];
-        }
-        if (countJokers == 0) {
-            v++;
         }
 
         return v;
