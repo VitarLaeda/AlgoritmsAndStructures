@@ -3,7 +3,6 @@ import java.util.*;
 
 public class Lngpok {
 
-    private static final int RADIX = 10000;
     private static int countJokers;
     private static Set<Integer> set = new HashSet<>();
 
@@ -50,13 +49,11 @@ public class Lngpok {
         int[] combos = new int[set.size()];
         int[] combosHash = new int[set.size()];
         int jokers = countJokers;
-        int i = 0;
         int v = 1;
         int k = 0;
-        for (Integer c : set) {
-            combos[i] = c;
-            i++;
-        }
+        int i = 0;
+        for (Integer val : set) combos[i++] = val;
+
         Arrays.sort(combos);
         for (int count = 0; count < combos.length - 1; count++) {
             if (combos[count + 1] == combos[count] + 1) {
@@ -67,6 +64,7 @@ public class Lngpok {
                 if (jokers < 0) {
                     Arrays.sort(combosHash);
                     v = combosHash[combosHash.length - 1] + countJokers;
+                    jokers=countJokers;
                 }
             } else {
                 jokers = countJokers;
@@ -87,7 +85,6 @@ public class Lngpok {
         if (v < combosHash[combosHash.length - 1]) {
             v = combosHash[combosHash.length - 1];
         }
-
         return v;
     }
 
