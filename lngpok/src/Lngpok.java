@@ -3,26 +3,8 @@ import java.util.*;
 
 public class Lngpok {
 
-    int MAX(int a,int b) {
-       return ((a > b) ? a : b);
-    }
-    int MIN(int a,int b){   return ((a < b) ? a : b);}
-
-
-    int median(int a, int b, int c)
-    {
-        int max;
-        int min;
-
-        max = MAX(a, MAX(b,c));
-        min = MIN(a, MIN(b,c));
-
-        return (a + b + c) - min - max;
-    }
-
     private static final int RADIX = 10000;
-    private static final int  MAX = 10000000;
-    private static int countJokers= 0;
+    private static int countJokers;
     private static Set<Integer> set = new HashSet<>();
 
     public static void main(String[] args) throws IOException {
@@ -69,6 +51,7 @@ public class Lngpok {
         int [] combosHash = new int[set.size()];
         int jokers = countJokers;
         int i=0;
+        int v=0;
         int k=0;
         for (Integer c : set){
             combos[i] = c;
@@ -83,15 +66,18 @@ public class Lngpok {
                 jokers -= ((combos[count+1] - combos[count])-1);
                 if (jokers<0){
                     Arrays.sort(combosHash);
-                    return combosHash[combosHash.length-1]+countJokers;
+                    v = combosHash[combosHash.length-1]+countJokers;
                 }
             }
             else {
                 jokers = countJokers;
                 k++;
             }
+            if (v<combosHash[combosHash.length-1]){
+                v = combosHash[combosHash.length-1];
+            }
         }
-        return combosHash[combosHash.length-1] + countJokers + 1;
+        return v;
     }
 
     static int[] countSort(int[] array) {
@@ -132,39 +118,5 @@ public class Lngpok {
             }
         }
         return aux;
-    }
-
-    static void countSort2(int[] a, int length, int exp)
-    {
-        int i;
-    int[] hist = new int [RADIX];
-    int[] out = new int[length];
-
-
-        for (i = 0; i < length; i++)
-        {
-            int r = (a[i] / exp) % RADIX;
-            hist[r] = hist[r] + 1;
-        }
-
-        for (i = 1; i < RADIX; i++)
-        {
-            hist[i] = hist[i] + hist[i - 1];
-        }
-
-        for (i = length - 1; i >= 0; i--)
-        {
-            int r = (a[i] / exp) % RADIX;
-            out[hist[r] - 1] = a[i];
-            hist[r] = hist[r] - 1;
-        }
-
-    }
-    static void radixSort(int[] a, int length, int range) {
-        int exp;
-
-        for (exp = 1; (range / exp) > 0; exp = exp * RADIX) {
-            countSort2(a, length, exp);
-        }
     }
 }
