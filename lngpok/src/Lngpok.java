@@ -51,7 +51,7 @@ public class Lngpok {
         int [] combosHash = new int[set.size()];
         int jokers = countJokers;
         int i=0;
-        int v=0;
+        int v=1;
         int k=0;
         for (Integer c : set){
             combos[i] = c;
@@ -73,10 +73,20 @@ public class Lngpok {
                 jokers = countJokers;
                 k++;
             }
-            if (v<combosHash[combosHash.length-1]){
-                v = combosHash[combosHash.length-1];
+            if (combos.length<3){
+                if (combos[count+1]==combos[count]+1){
+                    combosHash[k]+=1+jokers;
+                }
             }
         }
+        Arrays.sort(combosHash);
+        if (v<combosHash[combosHash.length-1]){
+            v = combosHash[combosHash.length-1];
+        }
+        if(countJokers == 0){
+            v++;
+        }
+
         return v;
     }
 
