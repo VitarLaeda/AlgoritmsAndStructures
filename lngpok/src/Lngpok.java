@@ -31,10 +31,10 @@ public class Lngpok {
 
         carts = countSort(carts);
 
-        if (set.isEmpty()){
+        if (set.isEmpty()) {
 
             combo = countJokers;
-        }else {
+        } else {
             combo = findCombinations(set, countJokers);
         }
         System.out.println(combo);
@@ -47,43 +47,42 @@ public class Lngpok {
     }
 
     private static int findCombinations(Set<Integer> set, int countJokers) {
-        int [] combos = new int[set.size()];
-        int [] combosHash = new int[set.size()];
+        int[] combos = new int[set.size()];
+        int[] combosHash = new int[set.size()];
         int jokers = countJokers;
-        int i=0;
-        int v=1;
-        int k=0;
-        for (Integer c : set){
+        int i = 0;
+        int v = 1;
+        int k = 0;
+        for (Integer c : set) {
             combos[i] = c;
             i++;
-            }
-            Arrays.sort(combos);
-        for (int count=0;count<combos.length-1;count++){
-            if (combos[count+1]==combos[count]+1){
-                combosHash[k]+=1;
-            }else if ((combos[count] - combos[count+1]) <= jokers ){
-                combosHash[k]+=1;
-                jokers -= ((combos[count+1] - combos[count])-1);
-                if (jokers<0){
+        }
+        Arrays.sort(combos);
+        for (int count = 0; count < combos.length - 1; count++) {
+            if (combos[count + 1] == combos[count] + 1) {
+                combosHash[k] += 1;
+            } else if ((combos[count] - combos[count + 1]) <= jokers) {
+                combosHash[k] += 1;
+                jokers -= ((combos[count + 1] - combos[count]) - 1);
+                if (jokers < 0) {
                     Arrays.sort(combosHash);
-                    v = combosHash[combosHash.length-1]+countJokers;
+                    v = combosHash[combosHash.length - 1] + countJokers;
                 }
-            }
-            else {
+            } else {
                 jokers = countJokers;
                 k++;
             }
-            if (combos.length<3){
-                if (combos[count+1]==combos[count]+1){
-                    combosHash[k]+=1+jokers;
+            if (combos.length < 3) {
+                if (combos[count + 1] == combos[count] + 1) {
+                    combosHash[k] += 1 + jokers;
                 }
             }
         }
         Arrays.sort(combosHash);
-        if (v<combosHash[combosHash.length-1]){
-            v = combosHash[combosHash.length-1];
+        if (v < combosHash[combosHash.length - 1]) {
+            v = combosHash[combosHash.length - 1];
         }
-        if(countJokers == 0){
+        if (countJokers == 0) {
             v++;
         }
 
@@ -105,26 +104,26 @@ public class Lngpok {
 
         int[] counts = new int[max - min + 1];
 
-        for (int i = 0;  i < array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             counts[array[i] - min]++;
         }
 
         counts[0]--;
         for (int i = 1; i < counts.length; i++) {
-            counts[i] = counts[i] + counts[i-1];
+            counts[i] = counts[i] + counts[i - 1];
         }
 
         for (int i = array.length - 1; i >= 0; i--) {
-            if (array[i]==0){
+            if (array[i] == 0) {
                 countJokers++;
             }
             aux[counts[array[i] - min]--] = array[i];
         }
         for (int anOut : array) {
-            if (anOut==0){
+            if (anOut == 0) {
                 continue;
-            }else {
-            set.add(anOut);
+            } else {
+                set.add(anOut);
             }
         }
         return aux;
