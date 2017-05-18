@@ -7,7 +7,7 @@ public class Discnt {
     private static double summary = 0;
 
     public static void main(String[] args) throws IOException {
-        String inputFileName = args.length >= 2 ? args[0] : "discnt.in";
+        String inputFileName = args.length >= 2 ? args[0] : "discnt/src/main/discnt.in";
         String outputFileName = args.length >= 2 ? args[1] : "discnt.out";
 
 
@@ -33,9 +33,9 @@ public class Discnt {
         double bestPrice = summary + (sum - ((sum / 100) * disc));
 
         PrintWriter pw1 = new PrintWriter(new BufferedWriter(new FileWriter(outputFileName)));
-        pw1.close(); // Make sure the first PrintWriter object name is different from the second one.
+        pw1.close();
 
-        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(outputFileName, true))); // PrintWriter in append-mode. When you recreate the text file with the same name, the file contents are erased because the previous object was not in append mode.
+        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(outputFileName, true)));
         pw.print(String.format("%.2f", bestPrice));
         pw.close();
 
