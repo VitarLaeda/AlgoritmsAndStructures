@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Lngpok {
 
     public static void main(String[] args) throws IOException {
-        String inputFileName = args.length >= 2 ? args[0] : "lngpok/src/main/lngpok.in";
-        String outputFileName = args.length >= 2 ? args[1] : "lngpok/src/lngpok.out";
+        String inputFileName = args.length >= 2 ? args[0] : "lngpok.in";
+        String outputFileName = args.length >= 2 ? args[1] : "lngpok.out";
 
         LngpokInputData inputData = readInput(inputFileName);
         LngpokOutputData outputData = solve(inputData);
