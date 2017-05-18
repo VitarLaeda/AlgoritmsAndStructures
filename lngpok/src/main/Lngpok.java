@@ -8,12 +8,12 @@ public class Lngpok {
         String inputFileName = args.length >= 2 ? args[0] : "lngpok.in";
         String outputFileName = args.length >= 2 ? args[1] : "lngpok.out";
 
-        LngpokInputData inputData = readInput(inputFileName);
-        LngpokOutputData outputData = solve(inputData);
+        DataLngpokInput inputData = readInput(inputFileName);
+        DataLngpokOutput outputData = solve(inputData);
         writeOutput(outputFileName, outputData);
     }
 
-    private static LngpokInputData readInput(String inputFileName) throws FileNotFoundException {
+    private static DataLngpokInput readInput(String inputFileName) throws FileNotFoundException {
         File inputFile = new File(inputFileName);
 
         try (Scanner inputFileScanner = new Scanner(inputFile)) {
@@ -24,11 +24,11 @@ public class Lngpok {
                 cards[i] = Integer.parseInt(cardStrings[i]);
             }
 
-            return new LngpokInputData(cards);
+            return new DataLngpokInput(cards);
         }
     }
 
-    private static LngpokOutputData solve(LngpokInputData inputData) {
+    private static DataLngpokOutput solve(DataLngpokInput inputData) {
         int[] sortedCards = inputData.getCards();
         MergeSort.sort(sortedCards);
 
@@ -63,7 +63,7 @@ public class Lngpok {
             }
         }
 
-        return new LngpokOutputData(maxSequenceLengthSoFar);
+        return new DataLngpokOutput(maxSequenceLengthSoFar);
     }
 
     private static int countJokers(int[] sortedCards) {
@@ -98,7 +98,7 @@ public class Lngpok {
         return (sortedUniqueNonJokers[right] - sortedUniqueNonJokers[left] - 1) - (right - left - 1);
     }
 
-    private static void writeOutput(String outputFileName, LngpokOutputData outputData) throws IOException {
+    private static void writeOutput(String outputFileName, DataLngpokOutput outputData) throws IOException {
         try (Writer outputFileWriter = new FileWriter(outputFileName)) {
             outputFileWriter.write(String.valueOf(outputData.getLongestSequenceLength()));
         }

@@ -1,4 +1,4 @@
-public class LngpokOutputData {
+public class DataLngpokOutput {
 
     private int longestSequenceLength;
 
@@ -10,7 +10,7 @@ public class LngpokOutputData {
         this.longestSequenceLength = longestSequenceLength;
     }
 
-    public LngpokOutputData(int longestSequenceLength) {
+    public DataLngpokOutput(int longestSequenceLength) {
         this.longestSequenceLength = longestSequenceLength;
     }
 }

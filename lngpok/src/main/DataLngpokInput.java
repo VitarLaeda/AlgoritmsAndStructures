@@ -1,4 +1,4 @@
-public class LngpokInputData {
+public class DataLngpokInput {
 
     private int[] cards;
 
@@ -10,7 +10,7 @@ public class LngpokInputData {
         this.cards = cards;
     }
 
-    public LngpokInputData(int[] cards) {
+    public DataLngpokInput(int[] cards) {
         this.cards = cards;
     }
 }
