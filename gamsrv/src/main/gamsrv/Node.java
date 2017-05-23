@@ -1,4 +1,4 @@
-package gamesrv;
+package gamsrv;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class Node {
 
     @Override
     public String toString() {
-        return "\n\tgamesrv.Node{" +
+        return "\n\tgamsrv.Node{" +
                 "type=" + type +
                 ", id=" + id +
                 ", connections=" + connections +

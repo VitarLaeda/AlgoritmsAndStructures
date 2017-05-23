@@ -1,4 +1,4 @@
-package gamesrv;
+package gamsrv;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,8 +13,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-import static gamesrv.Node.Type.CLIENT;
-import static gamesrv.Node.Type.ROUTER;
+import static gamsrv.Node.Type.CLIENT;
+import static gamsrv.Node.Type.ROUTER;
 
 public class Gamsrv {
 

@@ -1,4 +1,4 @@
-package gamesrv;
+package gamsrv;
 
 import static java.util.Objects.requireNonNull;
 

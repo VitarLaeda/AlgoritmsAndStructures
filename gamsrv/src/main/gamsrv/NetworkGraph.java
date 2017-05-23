@@ -1,11 +1,11 @@
-package gamesrv;
+package gamsrv;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static gamesrv.Node.Type.ROUTER;
+import static gamsrv.Node.Type.ROUTER;
 
 public class NetworkGraph {
 
@@ -31,7 +31,7 @@ public class NetworkGraph {
 
     @Override
     public String toString() {
-        return "gamesrv.gamesrv.NetworkGraph{" +
+        return "gamsrv.gamsrv.NetworkGraph{" +
                 "nodes=" + nodes.values() +
                 '}';
     }
