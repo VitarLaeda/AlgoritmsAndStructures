@@ -9,7 +9,6 @@ public class Hamstr {
 
         DataHamstrInput inputData = readInput(inputFileName);
         DataHamstrOutput outputData = solve(inputData);
-        System.out.println(outputData.getMaxAffordableHamsters());
         writeOutput(outputFileName, outputData);
     }
 
